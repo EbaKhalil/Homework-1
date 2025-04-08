@@ -46,8 +46,11 @@ public class LoginTest {
 
     @Test(priority = 3)
     public void verifySignInPageText() {
-        WebElement paragraph = driver.findElement(By.xpath("//p[text()='Welcome back! To access your account, please enter your email address and password and click Sign In.']"));
-        System.out.println(paragraph.getText());
+ WebElement paragraph = driver.findElement(By.xpath("//p[text()='Welcome back! To access your account, please enter your email address and password and click Sign In.']"));
+        String actualText = paragraph.getText();
+        String expectedText = "Welcome back! To access your account, please enter your email address and password and click Sign In.";
+
+        Assert.assertEquals(actualText, expectedText, "Sign in welcome text does not match!");       
     }
 
     @Test(priority = 4)
@@ -71,8 +74,11 @@ public class LoginTest {
 
     @Test(priority = 6)
     public void verifyWelcomeMessage() {
-        WebElement welcomeMessage = driver.findElement(By.xpath("//p[text()='Welcome to your account at Ballard Designs. ']"));
-        System.out.println(welcomeMessage.getText());
+ WebElement welcomeMessage = driver.findElement(By.xpath("//p[text()='Welcome to your account at Ballard Designs. ']"));
+        String actualText = welcomeMessage.getText();
+        String expectedText = "Welcome to your account at Ballard Designs." ;
+
+        Assert.assertEquals(actualText, expectedText,  "Welcome message does not match!");       
     }
 
     @AfterClass
